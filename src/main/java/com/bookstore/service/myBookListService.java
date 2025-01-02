@@ -6,6 +6,9 @@ import com.bookstore.repository.MyBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
+
 @Service
 public class myBookListService {
 
@@ -18,5 +21,11 @@ public class myBookListService {
 
     }
 
+    public List<MyBookList> getAllMyBooks(){
+        return mybook.findAll();
+    }
+   public void deleteById(Integer id){
+        mybook.deleteById(id);
+   }
 
 }
