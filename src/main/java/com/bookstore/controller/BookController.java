@@ -35,9 +35,7 @@ public class BookController {
     @GetMapping("/available_books")
     public ModelAndView getALlBooks() {
         List<Book> list=service.getAllbooks();
-//        ModelAndView m=new ModelAndView();
-//        m.setViewName("bookList");
-//        m.addObject("book",list);
+
         return new ModelAndView("bookList","book",list) ;
     }
 
@@ -62,6 +60,19 @@ public class BookController {
         myBookService.saveMyBooks(mb);
         return "redirect:/my_books";
     }
+    @RequestMapping("/editBook/{id}")
+    public String editBook(@PathVariable("id") Integer id,Model model){
+        Book b=service.getBookById(id);
+        model.addAttribute("book",b);
+        return "bookEdit";
+    }
+    @RequestMapping("/deleteBook/{id}")
+    public String editBook(@PathVariable("id") Integer id){
+       service.deleteById(id);
+
+        return "redirect:/available_books";
+    }
+
 
 
 
