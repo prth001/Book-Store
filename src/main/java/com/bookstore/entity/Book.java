@@ -1,23 +1,26 @@
 package com.bookstore.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Book {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
+
     private String author;
     private String name;
     private String price;
 
+    public Book(){}
 
-    public Book(int id, String author, String price, String name) {
+
+
+    public Book(Integer id, String author, String price, String name) {
         this.id = id;
         this.author = author;
         this.price = price;
@@ -33,7 +36,7 @@ public class Book {
         this.price = price;
     }
 
-    public int getId() {
+    public Integer  getId() {
         return id;
     }
 
